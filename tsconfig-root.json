@@ -40,6 +40,12 @@
       ],
       "ember-chessboard/*": [
         "addons/ember-chessboard/src/*"
+      ],
+      "test-chess/*": [
+        "apps/test-chess/app/*"
+      ],
+      "test-chess/tests/*": [
+        "apps/test-chess/tests/*"
       ]
     }
   },
