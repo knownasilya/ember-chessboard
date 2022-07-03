@@ -39,7 +39,9 @@
     "main": "addon-main.js",
     "type": "addon",
     "version": 2,
-    "app-js": {},
+    "app-js": {
+      "./components/chessboard.js": "./dist/_app_/components/chessboard.js"
+    },
     "public-assets": {}
   },
   "peerDependencies": {},

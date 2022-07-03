@@ -26,21 +26,21 @@ export default class extends Route {
     const translations = await window.enUSTranslationsPromise;
     this.intl.addTranslations('en-US', translations);
     this.intl.setLocale('en-US');
-    document.querySelector('#launch-screen')!.remove();
+    // document.querySelector('#launch-screen')!.remove();
   }
 
   @action
   didTransition() {
     if (this.isInitialRender) {
       this.isInitialRender = false;
-      const one_second = 1000;
-      const launchScreen = document.querySelector('#launch-screen');
+      // const one_second = 1000;
+      // const launchScreen = document.querySelector('#launch-screen');
 
-      if (launchScreen) {
-        launchScreen.setAttribute('aria-hidden', 'true');
-        launchScreen.classList.add('hidden');
-        // setTimeout(() => launchScreen.remove(), one_second);
-      }
+      // if (launchScreen) {
+      //   launchScreen.setAttribute('aria-hidden', 'true');
+      //   launchScreen.classList.add('hidden');
+      //   // setTimeout(() => launchScreen.remove(), one_second);
+      // }
     }
   }
 }

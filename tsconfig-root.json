@@ -29,24 +29,12 @@
     "module": "es6",
     "experimentalDecorators": true,
     "paths": {
-      "ember-intl/*": [
-        "node_modules/ember-intl/addon/*"
-      ],
-      "fetch": [
-        "node_modules/ember-fetch"
-      ],
-      "*": [
-        "types/*"
-      ],
-      "ember-chessboard/*": [
-        "addons/ember-chessboard/src/*"
-      ],
-      "test-chess/*": [
-        "apps/test-chess/app/*"
-      ],
-      "test-chess/tests/*": [
-        "apps/test-chess/tests/*"
-      ]
+      "ember-intl/*": ["node_modules/ember-intl/addon/*"],
+      "fetch": ["node_modules/ember-fetch"],
+      "*": ["types/*"],
+      "ember-chessboard/*": ["addons/ember-chessboard/src/*"],
+      "test-chess/*": ["apps/test-chess/app/*"],
+      "test-chess/tests/*": ["apps/test-chess/tests/*"]
     }
   },
   "include": [

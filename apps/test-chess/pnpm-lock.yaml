@@ -21,6 +21,7 @@ specifiers:
   broccoli-asset-rev: ^3.0.0
   ember-auto-import: ^2.4.1
   ember-cached-decorator-polyfill: ^0.1.4
+  ember-chessboard: link:../../addons/ember-chessboard
   ember-cli: ^4.3.0
   ember-cli-app-version: ^5.0.0
   ember-cli-babel: ^7.26.11
@@ -52,6 +53,9 @@ specifiers:
   sass: ^1.52.0
   webpack: ^5.72.1
   webpack-bundle-analyzer: ^4.5.0
+
+dependencies:
+  ember-chessboard: link:../../addons/ember-chessboard
 
 devDependencies:
   '@babel/core': 7.18.6
