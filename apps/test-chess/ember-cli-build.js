@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
@@ -65,6 +66,9 @@ module.exports = function (defaults) {
       includeExternalHelpers: true,
     },
     'ember-cli-terser': terserSettings,
+    autoImport: {
+      watchDependencies: ['ember-chessboard'],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -94,18 +98,58 @@ module.exports = function (defaults) {
     staticComponents: true,
     splitAtRoutes: [],
     packagerOptions: {
-      // publicAssetURL: EmberApp.env() === 'production' ? 'https://your-cdn-here.com/' : '/', // This should be a URL ending in "/"
+      // publicAssetURL is used similarly to Ember CLI's asset fingerprint prepend option.
+      publicAssetURL: '/',
+      // Embroider lets us send our own options to the style-loader
+      cssLoaderOptions: {
+        // don't create source maps in production
+        sourceMap: isProd === false,
+        // enable CSS modules
+        modules: {
+          // global mode, can be either global or local
+          // we set to global mode to avoid hashing tailwind classes
+          mode: 'global',
+          // class naming template
+          localIdentName: isProd
+            ? '[sha512:hash:base64:5]'
+            : '[path][name]__[local]',
+        },
+      },
+
       webpackConfig: {
-        plugins: [new BundleAnalyzerPlugin({
+        module: {
+          rules: [
+            {
+              // When webpack sees an import for a CSS files
+              test: /\.css$/i,
+              exclude: /node_modules/,
+              use: [
+                {
+                  // use the PostCSS loader addon
+                  loader: 'postcss-loader',
+                  options: {
+                    sourceMap: isProd === false,
+                    postcssOptions: {
+                      config: './postcss.config.js',
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      },
+      plugins: [
+        new BundleAnalyzerPlugin({
           generateStatsFile: true,
           openAnalyzer: false,
           statsFilename: path.join(
             process.cwd(),
             'concat-stats-for',
-            'asset-stats.json',
+            'asset-stats.json'
           ),
-        })]
-      }
+        }),
+      ],
     },
   });
 };

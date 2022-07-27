@@ -4,6 +4,7 @@ import type RouterService from '@ember/routing/router-service';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
+import type Fastboot from 'ember-cli-fastboot/services/fastboot';
 import type IntlService from 'ember-intl/addon/services/intl';
 
 declare global {
@@ -15,6 +16,7 @@ declare global {
 export default class extends Route {
   @service declare intl: IntlService;
   @service declare router: RouterService;
+  @service declare fastboot: Fastboot;
 
   @tracked isInitialRender = true;
 
@@ -26,21 +28,29 @@ export default class extends Route {
     const translations = await window.enUSTranslationsPromise;
     this.intl.addTranslations('en-US', translations);
     this.intl.setLocale('en-US');
-    // document.querySelector('#launch-screen')!.remove();
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    if (!this.fastboot.isFastBoot) {
+      document.querySelector('#launch-screen')!.remove();
+    }
   }
 
   @action
   didTransition() {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    if (this.fastboot.isFastBoot) {
+      return;
+    }
+
     if (this.isInitialRender) {
       this.isInitialRender = false;
-      // const one_second = 1000;
-      // const launchScreen = document.querySelector('#launch-screen');
+      const one_second = 1000;
+      const launchScreen = document.querySelector('#launch-screen');
 
-      // if (launchScreen) {
-      //   launchScreen.setAttribute('aria-hidden', 'true');
-      //   launchScreen.classList.add('hidden');
-      //   // setTimeout(() => launchScreen.remove(), one_second);
-      // }
+      if (launchScreen) {
+        launchScreen.setAttribute('aria-hidden', 'true');
+        launchScreen.classList.add('hidden');
+        setTimeout(() => launchScreen.remove(), one_second);
+      }
     }
   }
 }

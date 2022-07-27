@@ -9,7 +9,7 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const addon = new Addon({
   srcDir: 'src',
-  destDir: 'dist/src',
+  destDir: 'dist',
 });
 
 const importAvailable = ['services/**/*.{js,ts}', 'modifiers/**/*.{js,ts}'];
@@ -90,7 +90,10 @@ function templateOnlyPlugin(args) {
 export default {
   // This provides defaults that work well alongside `publicEntrypoints` below.
   // You can augment this if you need to.
-  output: addon.output(),
+  output: {
+    ...addon.output(),
+    hoistTransitiveImports: false,
+  },
 
   external: [],
 

@@ -1,0 +1,16 @@
+:local(.chessboard) {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  gap: 1px;
+}
+
+:local(.square) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  width: 50px;
+  aspect-ratio: 1/1;
+  background-color: rebeccapurple;
+  color: white;
+}

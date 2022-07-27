@@ -1,6 +1,12 @@
-{{#each this.emptyList as |col|}}
-  {{#each this.emptyList as |row|}}
-    {{col}},
-    {{row}}
+<ul class={{this.styles.chessboard}}>
+  {{#each this.emptyList as |col|}}
+    {{#each this.emptyList as |row|}}
+      <li class={{this.styles.square}}>
+        {{#let (this.getPiece @board col row) as |piece|}}
+          {{piece.type}},
+          {{piece.color}}
+        {{/let}}
+      </li>
+    {{/each}}
   {{/each}}
-{{/each}}
+</ul>

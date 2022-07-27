@@ -388,6 +388,8 @@ module.exports = {
         'apps/*/index.js',
         'engines/*/index.js',
         'addons/*/index.js',
+        'fastboot-server.js',
+        '*/*/postcss.config.js',
       ],
       parserOptions: {
         sourceType: 'script',

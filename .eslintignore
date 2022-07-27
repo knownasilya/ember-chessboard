@@ -22,6 +22,7 @@ engines/*/blueprints/edition-detector.js
 engines/*/blueprints/test-framework-detector.js
 apps/*/ios/
 apps/*/android/
+types/**/*
 
 # dependencies
 /node_modules/
