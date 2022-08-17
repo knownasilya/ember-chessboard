@@ -39,13 +39,14 @@
   },
   "include": [
     "apps/*/app/**/*",
+    "apps/*/tests/**/*",
     "apps/*/capacitor.config.ts",
     "addons/*/src/**/*",
-    "addons/*/addon/**/*",
     "engines/*/addon/**/*",
-    "apps/*/tests/**/*",
+    "addons/*/addon/**/*",
     "addons/*/tests/**/*",
     "engines/*/tests/**/*",
+    "tests/*/app/**/*",
     "tests/*/tests/**/*",
     "types/**/*"
   ],
