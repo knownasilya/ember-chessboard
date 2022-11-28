@@ -58,7 +58,7 @@
     "@babel/preset-env": "^7.18.9",
     "@embroider/addon-dev": "^1.6.0",
     "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-typescript": "^8.3.2",
+    "@rollup/plugin-typescript": "^10.0.0",
     "@types/chess.js": "^0.13.2",
     "rollup": "^2.74.1",
     "tslib": "^2.4.0",
