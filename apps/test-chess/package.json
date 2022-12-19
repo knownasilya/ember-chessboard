@@ -62,7 +62,7 @@
     "ember-inflector": "^4.0.2",
     "ember-intl": "github:ember-intl/ember-intl#1f6c801994f7",
     "ember-load-initializers": "^2.1.2",
-    "ember-modifier": "^3.2.7",
+    "ember-modifier": "^4.0.0",
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^8.0.3",
